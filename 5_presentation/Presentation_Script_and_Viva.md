@@ -24,27 +24,27 @@ pip install -r requirements.txt
 
 ### Step 2 – Train all 4 models and make all the results (about 20 minutes)
 ```powershell
-python sentiment_rnn_lstm_gru.py
+python 1_code/sentiment_rnn_lstm_gru.py
 ```
 **What you'll see:** each model training epoch by epoch, then a final results table and the predictions on new reviews.
-**What it creates:** the `results/` folder:
+**What it creates:** the `2_results/` folder:
 
 | File | What it shows | When to show it |
 |---|---|---|
-| `results/fig0_review_lengths.png` | Review length histogram | Slide 4 – Dataset |
-| `results/fig5_system_design_dfd.png` | System design / DFD | Slide 5 – Design |
-| `results/fig2_metric_comparison.png` | Accuracy/Precision/Recall/F1 bar chart | Slide 7 – Results |
-| `results/fig1_training_curves.png` | Training vs validation curves (overfitting) | Slide 7 – Results |
-| `results/fig3_confusion_matrices.png` | Confusion matrices | Slide 7 – Results |
-| `results/fig4_time_and_params.png` | Training time and parameters | Slide 7 – Results |
-| `results/results_table.csv` | Final numbers table | Slide 7 – Results |
-| `results/demo_predictions.csv` | 4 models on our own sentences | Slide 8 – Demo |
+| `2_results/fig0_review_lengths.png` | Review length histogram | Slide 4 – Dataset |
+| `2_results/fig5_system_design_dfd.png` | System design / DFD | Slide 5 – Design |
+| `2_results/fig2_metric_comparison.png` | Accuracy/Precision/Recall/F1 bar chart | Slide 7 – Results |
+| `2_results/fig1_training_curves.png` | Training vs validation curves (overfitting) | Slide 7 – Results |
+| `2_results/fig3_confusion_matrices.png` | Confusion matrices | Slide 7 – Results |
+| `2_results/fig4_time_and_params.png` | Training time and parameters | Slide 7 – Results |
+| `2_results/results_table.csv` | Final numbers table | Slide 7 – Results |
+| `2_results/demo_predictions.csv` | 4 models on our own sentences | Slide 8 – Demo |
 
-> ⚠️ You do **not** need to run Step 2 again during the presentation, because the results are already saved. Just open the images from the `results/` folder. Run it only if the examiner asks you to show the training.
+> ⚠️ You do **not** need to run Step 2 again during the presentation, because the results are already saved. Just open the images from the `2_results/` folder. Run it only if the examiner asks you to show the training.
 
 ### Step 3 – Live demo: type your own review (the examiner's favourite)
 ```powershell
-python predict.py
+python 1_code/predict.py
 ```
 Then type any review and press Enter, for example:
 ```
@@ -54,30 +54,30 @@ Review: q
 ```
 Or give one sentence directly:
 ```powershell
-python predict.py "This movie was absolutely wonderful"
+python 1_code/predict.py "This movie was absolutely wonderful"
 ```
-The first run trains and saves the GRU model (about 2–3 minutes). After that it loads instantly from `models/gru_demo.keras`. **Run it once before the presentation.**
+The first run trains and saves the GRU model (about 2–3 minutes). After that it loads instantly from `2_results/model/gru_demo.keras`. **Run it once before the presentation.**
 
 ### Step 4 – Rebuild the reports (only if you change something)
 ```powershell
-python make_dfd.py
-python build_reports.py
+python 1_code/make_dfd.py
+python 1_code/build_reports.py
 ```
-This creates `Final_Project_Report.docx` and `Report_LaTeX/report.tex`. After rebuilding, open the Word file and right-click the Table of Contents → **Update Field**.
+This creates `3_report/Final_Project_Report.docx` and `3_report/latex/report.tex`. After rebuilding, open the Word file and right-click the Table of Contents → **Update Field**.
 
 ### Which file to submit or open
 
 | What | File |
 |---|---|
-| College project report (Word) | `Final_Project_Report.docx` |
-| College project report (PDF) | `Final_Project_Report.pdf` |
-| Same report in LaTeX | `Report_LaTeX/report.tex` (upload the `Report_LaTeX` folder to Overleaf) |
-| IEEE research paper | `IEEE_Paper/main.tex` and `IEEE_Paper/main.pdf` |
-| Main code to show | `sentiment_rnn_lstm_gru.py` |
+| College project report (Word) | `3_report/Final_Project_Report.docx` |
+| College project report (PDF) | `3_report/Final_Project_Report.pdf` |
+| Same report in LaTeX | `3_report/latex/report.tex` (upload the `3_report/latex` folder to Overleaf) |
+| IEEE research paper | `4_research_paper_IEEE/main.tex` and `main.pdf` |
+| Main code to show | `1_code/sentiment_rnn_lstm_gru.py` |
 
 ### Order on presentation day
-1. Open PowerShell in the project folder and run `python predict.py` once, so it's ready.
-2. Open `Final_Project_Report.pdf`. Its figures are your slides.
+1. Open PowerShell in the project folder and run `python 1_code/predict.py` once, so it's ready.
+2. Open `3_report/Final_Project_Report.pdf`. Its figures are your slides.
 3. Follow the script in Part 1 below.
 4. At Slide 8, switch to PowerShell and type 2–3 reviews live.
 

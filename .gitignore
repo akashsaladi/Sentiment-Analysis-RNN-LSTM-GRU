@@ -7,10 +7,7 @@
 # Python
 __pycache__/
 *.pyc
-# Not part of the submission
+# Old drafts / temp
 *.zip
-results_log.txt
-deep_learning_project_report.docx
 Project_Report.docx
-make_report.py
 ~$*

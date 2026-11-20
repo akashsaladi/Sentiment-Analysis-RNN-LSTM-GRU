@@ -2,8 +2,8 @@
 Comparative Study of SimpleRNN, LSTM, GRU and Bidirectional LSTM
 for Sentiment Analysis on the IMDB Movie Review Dataset.
 
-Run:  python sentiment_rnn_lstm_gru.py
-All plots / tables are saved to the ./results folder.
+Run:  python 1_code/sentiment_rnn_lstm_gru.py
+All plots / tables are saved to the 2_results folder.
 """
 import os, time, json, random
 import numpy as np
@@ -27,7 +27,8 @@ EMBED_DIM = 64
 UNITS = 64
 EPOCHS = 5
 BATCH = 128
-OUT = "results"
+BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # project folder
+OUT = os.path.join(BASE, "2_results")
 
 os.makedirs(OUT, exist_ok=True)
 random.seed(SEED); np.random.seed(SEED); tf.random.set_seed(SEED)
@@ -170,4 +171,4 @@ for s in samples:
 demo_df = pd.DataFrame(demo)
 demo_df.to_csv(f"{OUT}/demo_predictions.csv", index=False)
 print("\nCUSTOM REVIEW PREDICTIONS\n", demo_df.to_string(index=False))
-print(f"\nBest model: {best}.  All outputs saved in ./{OUT}/")
+print(f"\nBest model: {best}.  All outputs saved in {OUT}")

@@ -1,4 +1,5 @@
 """Draws the system design / data-flow diagram used in the report."""
+import os
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
@@ -39,5 +40,6 @@ for y1, y2 in [(12.75, 12.25), (11.15, 10.55), (9.65, 9.1), (5.27, 4.8), (3.8, 3
     arrow(5, y1, 5, y2)
 
 plt.tight_layout()
-plt.savefig("results/fig5_system_design_dfd.png", dpi=170)
+BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+plt.savefig(os.path.join(BASE, "2_results", "fig5_system_design_dfd.png"), dpi=170)
 print("saved")

@@ -215,7 +215,7 @@ Defaults: η = 0.001, β₁ = 0.9, β₂ = 0.999, ε = 10⁻⁷. Each weight get
 ## 9. Regularisation (fighting overfitting)
 
 **Overfitting** = the model memorises the training data. Training accuracy goes up, but validation accuracy goes down or validation loss goes up.
-**In our project:** training accuracy reached about 93% while validation loss rose after epoch 2 (see `results/fig1_training_curves.png`).
+**In our project:** training accuracy reached about 93% while validation loss rose after epoch 2 (see `2_results/fig1_training_curves.png`).
 
 | Technique | How it works | Our setting |
 |---|---|---|

@@ -2,8 +2,8 @@
 Fills the college template (deep_learning_project_report.docx) with the project content
 and writes the same report as LaTeX (Report_LaTeX/report.tex).
 
-Run:  python build_reports.py
-Out:  Final_Project_Report.docx, Report_LaTeX/ (report.tex + figures/)
+Run:  python 1_code/build_reports.py
+Out:  3_report/Final_Project_Report.docx, 3_report/latex/ (report.tex + figures/)
 """
 import copy, os, re, shutil, zipfile
 import pandas as pd
@@ -12,10 +12,11 @@ from docx.shared import Pt, Inches
 from docx.enum.text import WD_ALIGN_PARAGRAPH, WD_BREAK
 from docx.oxml.ns import qn
 
-TEMPLATE = "deep_learning_project_report.docx"
-OUT_DOCX = "Final_Project_Report.docx"
-TEX_DIR = "Report_LaTeX"
-R = "results"
+BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # project folder
+TEMPLATE = os.path.join(BASE, "3_report", "college_template.docx")
+OUT_DOCX = os.path.join(BASE, "3_report", "Final_Project_Report.docx")
+TEX_DIR = os.path.join(BASE, "3_report", "latex")
+R = os.path.join(BASE, "2_results")
 
 TITLE = ("A Comparative Study of RNN, LSTM, GRU and BiLSTM Models for "
          "Sentiment Analysis of IMDB Movie Reviews")
@@ -317,12 +318,12 @@ REFS = [
     "I. Goodfellow, Y. Bengio and A. Courville, Deep Learning. MIT Press, 2016, ch. 10.",
 ]
 APPENDIX = [
-    ("A.1 Project Files", ["sentiment_rnn_lstm_gru.py - complete training and evaluation code",
-                           "results/results_table.csv - final metrics of all models",
-                           "results/demo_predictions.csv - predictions on new reviews",
-                           "results/fig0 to fig5 - all figures used in this report"]),
+    ("A.1 Project Files", ["1_code/sentiment_rnn_lstm_gru.py - complete training and evaluation code",
+                           "2_results/results_table.csv - final metrics of all models",
+                           "2_results/demo_predictions.csv - predictions on new reviews",
+                           "2_results/fig0 to fig5 - all figures used in this report"]),
     ("A.2 How to Run", ["pip install tensorflow scikit-learn pandas matplotlib seaborn",
-                        "python sentiment_rnn_lstm_gru.py  (about 20 minutes on a laptop CPU)"]),
+                        "python 1_code/sentiment_rnn_lstm_gru.py  (about 20 minutes on a laptop CPU)"]),
 ]
 
 # =====================================================================  DOCX

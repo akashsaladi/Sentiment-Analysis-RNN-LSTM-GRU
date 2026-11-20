@@ -1,10 +1,10 @@
 """
 Live demo: type any movie review and the trained GRU model predicts Positive / Negative.
 
-Run:   python predict.py                       (interactive - type reviews, 'q' to quit)
-       python predict.py "the movie was great"  (one review from the command line)
+Run:   python 1_code/predict.py                       (interactive - type reviews, 'q' to quit)
+       python 1_code/predict.py "the movie was great"  (one review from the command line)
 
-First run only: if models/gru_demo.keras does not exist, it trains the GRU model
+First run only: if 2_results/model/gru_demo.keras does not exist, it trains the GRU model
 (about 2-3 minutes on CPU) and saves it. After that it loads instantly.
 """
 import os, sys
@@ -16,7 +16,8 @@ from tensorflow.keras.datasets import imdb
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 
 VOCAB_SIZE, MAX_LEN = 10000, 200
-MODEL_PATH = "models/gru_demo.keras"
+BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # project folder
+MODEL_PATH = os.path.join(BASE, "2_results", "model", "gru_demo.keras")
 
 if os.path.exists(MODEL_PATH):
     model = tf.keras.models.load_model(MODEL_PATH)
@@ -30,7 +31,7 @@ else:
                                layers.Dropout(0.5), layers.Dense(1, activation="sigmoid")])
     model.compile(optimizer="adam", loss="binary_crossentropy", metrics=["accuracy"])
     model.fit(x_tr, y_tr, epochs=2, batch_size=128, validation_split=0.2, verbose=2)
-    os.makedirs("models", exist_ok=True)
+    os.makedirs(os.path.dirname(MODEL_PATH), exist_ok=True)
     model.save(MODEL_PATH)
     print("Saved", MODEL_PATH)
 

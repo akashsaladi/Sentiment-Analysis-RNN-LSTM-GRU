@@ -20,29 +20,32 @@ It classifies IMDB movie reviews as **positive** or **negative**, and compares f
 
 **Findings:** gated models beat the basic RNN by 2.4–3.6%. GRU nearly matches LSTM at lower cost. BiLSTM costs 1.8× LSTM's training time for no accuracy gain.
 
-![Metric comparison](results/fig2_metric_comparison.png)
+![Metric comparison](2_results/fig2_metric_comparison.png)
 
 ## How to run
 Run these in PowerShell or a terminal **inside this folder**:
 
 ```bash
-pip install -r requirements.txt          # 1. install the libraries (once)
-python sentiment_rnn_lstm_gru.py         # 2. train all 4 models, save results/ (~20 min on CPU)
-python predict.py                        # 3. live demo: type a review, get Positive/Negative
+pip install -r requirements.txt            # 1. install the libraries (once)
+python 1_code/sentiment_rnn_lstm_gru.py    # 2. train all 4 models -> 2_results/ (~20 min on CPU)
+python 1_code/predict.py                   # 3. live demo: type a review, get Positive/Negative
 ```
 
 ## Project structure
 ```
-sentiment_rnn_lstm_gru.py        main code: data, 4 models, training, evaluation, plots
-predict.py                       live demo on your own sentences
-make_dfd.py                      draws the system design (DFD) diagram
-build_reports.py                 builds the college report (Word + LaTeX)
-results/                         figures, results_table.csv, demo_predictions.csv
-Final_Project_Report.docx/.pdf   project report in the SRM AP college format
-Report_LaTeX/                    same report in LaTeX (Overleaf-ready)
-IEEE_Paper/                      IEEE conference-format research paper (LaTeX + PDF)
-Presentation_Script_and_Viva.md  what to run, presentation script, viva Q&A
-Concepts_and_Formulas.md         every concept and formula explained from basics
+1_code/                          ▶ the code
+   sentiment_rnn_lstm_gru.py       main: data, 4 models, training, evaluation, plots
+   predict.py                      live demo on your own sentences
+   make_dfd.py                     draws the system design (DFD) diagram
+   build_reports.py                rebuilds the college report (Word + LaTeX)
+2_results/                       ▶ outputs: figures, results_table.csv, demo_predictions.csv, model/
+3_report/                        ▶ college project report (SRM AP format)
+   Final_Project_Report.pdf/.docx
+   latex/                          same report in LaTeX (Overleaf-ready)
+4_research_paper_IEEE/           ▶ IEEE conference-format research paper (main.tex + main.pdf)
+5_presentation/                  ▶ for the presentation and viva
+   Presentation_Script_and_Viva.md what to run, presentation script, viva Q&A
+   Concepts_and_Formulas.md        every concept and formula explained from basics
 ```
 
 ## Method (in short)
