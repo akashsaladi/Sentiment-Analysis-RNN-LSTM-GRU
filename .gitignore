@@ -1,0 +1,16 @@
+# LaTeX build files
+*.aux
+*.log
+*.toc
+*.out
+*.synctex.gz
+# Python
+__pycache__/
+*.pyc
+# Not part of the submission
+*.zip
+results_log.txt
+deep_learning_project_report.docx
+Project_Report.docx
+make_report.py
+~$*

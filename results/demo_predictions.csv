@@ -1,0 +1,5 @@
+Review,SimpleRNN,LSTM,GRU,BiLSTM
+"This movie was absolutely wonderful, the acting was brilliant and the story was touching",POS (0.62),POS (0.94),POS (0.94),POS (0.92)
+"Worst film I have ever seen. Boring, badly acted and a complete waste of time",NEG (0.01),NEG (0.01),NEG (0.00),NEG (0.01)
+The plot was predictable but the music and visuals were great,NEG (0.27),POS (0.71),POS (0.67),POS (0.61)
+"I did not like this movie at all, it was not good",NEG (0.08),POS (0.51),NEG (0.45),NEG (0.36)
